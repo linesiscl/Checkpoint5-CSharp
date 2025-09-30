@@ -14,7 +14,7 @@ bool rodando = true;
 
 while (rodando)
 {
-    Console.WriteLine("\n=== TO DO LIST ===");
+    Console.WriteLine("\n*** Lista de Tarefas ***");
     Console.WriteLine("1 - Adicionar Categoria");
     Console.WriteLine("2 - Listar Categorias");
     Console.WriteLine("3 - Adicionar Tarefa");
@@ -76,6 +76,10 @@ while (rodando)
 
             case "0":
                 rodando = false;
+                break;
+
+            default:
+                Console.WriteLine("Opção inválida!");
                 break;
         }
     }

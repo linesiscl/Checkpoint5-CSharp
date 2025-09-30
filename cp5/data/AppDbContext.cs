@@ -9,6 +9,7 @@ namespace cp5.data
         public DbSet<Tarefas> Tarefas { get; set; }
         public DbSet<Categorias> Categorias { get; set; }
 
+        //ao utilizar o projeto mudar para o caminho do projeto no seu computador, para não dar erro ao rodar pelo Visual Studio
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite(@"Data Source=C:\Users\Aline\Desktop\facul\3ESR\C#\cp5\cp5\todo.db");

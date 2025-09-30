@@ -15,6 +15,7 @@ namespace cp5.service
             _categoriaRepo = categoriaRepo;
         }
 
+        //método para adicionar uma tarefa a partir de uma categoria
         public void AdicionarTarefa(string titulo, string descricao, int categoriaId)
         {
             var categoria = _categoriaRepo.GetById(categoriaId);
@@ -24,11 +25,20 @@ namespace cp5.service
             _tarefaRepo.Add(tarefa);
         }
 
+        //lista as tarefas existentes
         public IEnumerable<Tarefas> ListarTarefas()
         {
-            return _tarefaRepo.GetAll();
+            var tarefas = _tarefaRepo.GetAll();
+
+            if (!tarefas.Any())
+            {
+                Console.WriteLine("Nenhuma tarefa cadastrada!");
+            }
+
+            return tarefas;
         }
 
+        //atualizar a tarefa
         public void AtualizarTarefa(int id, string descricao, bool concluida)
         {
             var tarefa = _tarefaRepo.GetById(id);
@@ -39,6 +49,7 @@ namespace cp5.service
             _tarefaRepo.Update(tarefa);
         }
 
+        //excluir
         public void ExcluirTarefa(int id)
         {
             var tarefa = _tarefaRepo.GetById(id);

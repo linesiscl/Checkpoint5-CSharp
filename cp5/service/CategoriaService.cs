@@ -13,15 +13,24 @@ namespace cp5.service
             _categoriaRepo = categoriaRepo;
         }
 
+        //adicionar categorias para as tarefas
         public void AdicionarCategoria(string nome)
         {
             var categoria = new Categorias { Nome = nome };
             _categoriaRepo.Add(categoria);
         }
 
+        //listar categorias existentes
         public IEnumerable<Categorias> ListarCategorias()
         {
-            return _categoriaRepo.GetAll();
+            var categorias = _categoriaRepo.GetAll();
+
+            if (!categorias.Any())
+            {
+                Console.WriteLine("Nenhuma categoria cadastrada!");
+            }
+
+            return categorias;
         }
     }
 }
